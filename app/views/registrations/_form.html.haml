@@ -1,0 +1,35 @@
+= form_for student_ambassador, url: registrations_path, html: { class: 'form-horizontal', role: 'form' } do |f|
+
+  .form-group{ class: ('has-error' unless student_ambassador.errors[:name].empty?) }
+    = f.label :name, class: 'col-sm-3 control-label'
+    .col-sm-3
+      = f.text_field :first_name, class: 'form-control', placeholder: 'First'
+    .col-sm-3
+      = f.text_field :last_name, class: 'form-control', placeholder: 'Last'
+    .col-sm-offset-3.col-sm-9
+      %span.help-block= student_ambassador.errors[:name].join(', ')
+
+  .form-group{ class: ('has-error' unless student_ambassador.errors[:email].empty?) }
+    = f.label :email, class: 'col-sm-3 control-label'
+    .col-sm-4
+      = f.email_field :email, class: 'form-control', placeholder: 'you@example.com'
+    .col-sm-offset-3.col-sm-9
+      %span.help-block= student_ambassador.errors[:email].join(', ')
+
+  .form-group{ class: ('has-error' unless student_ambassador.errors[:phone_number].empty?) }
+    = f.label :phone_number, class: 'col-sm-3 control-label'
+    .col-sm-4
+      = f.text_field :phone_number, class: 'form-control', placeholder: '(111) 555-9876'
+    .col-sm-offset-3.col-sm-9
+      %span.help-block= student_ambassador.errors[:phone_number].join(', ')
+
+  .form-group{ class: ('has-error' unless student_ambassador.errors[:frc_team_number].empty?) }
+    = f.label :frc_team_number, 'FRC Team #', class: 'col-sm-3 control-label'
+    .col-sm-2
+      = f.text_field :frc_team_number, class: 'form-control', placeholder: '1234'
+    .col-sm-offset-3.col-sm-9
+      %span.help-block= student_ambassador.errors[:frc_team_number].join(', ')
+
+  .form-group
+    .col-sm-offset-3.col-sm-2
+      = f.submit 'Sign Up', class: 'btn btn-primary btn-lg'

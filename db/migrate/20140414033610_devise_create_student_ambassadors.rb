@@ -1,6 +1,6 @@
-class DeviseCreateAmbassadors < ActiveRecord::Migration
+class DeviseCreateStudentAmbassadors < ActiveRecord::Migration
   def change
-    create_table(:ambassadors) do |t|
+    create_table(:student_ambassadors) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       # t.string :encrypted_password, null: false, default: ""
@@ -41,10 +41,10 @@ class DeviseCreateAmbassadors < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :ambassadors, :email,                unique: true
-    # add_index :ambassadors, :reset_password_token, unique: true
-    add_index :ambassadors, :confirmation_token,   unique: true
-    add_index :ambassadors, :authentication_token, unique: true
-    # add_index :ambassadors, :unlock_token,         unique: true
+    add_index :student_ambassadors, :email,                unique: true
+    # add_index :student_ambassadors, :reset_password_token, unique: true
+    add_index :student_ambassadors, :confirmation_token,   unique: true
+    add_index :student_ambassadors, :authentication_token, unique: true
+    # add_index :student_ambassadors, :unlock_token,         unique: true
   end
 end

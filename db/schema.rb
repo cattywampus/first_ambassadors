@@ -16,7 +16,14 @@ ActiveRecord::Schema.define(version: 20140414033625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ambassadors", force: true do |t|
+  create_table "authentications", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_ambassadors", force: true do |t|
     t.string   "email",                default: "", null: false
     t.integer  "sign_in_count",        default: 0,  null: false
     t.datetime "current_sign_in_at"
@@ -36,16 +43,9 @@ ActiveRecord::Schema.define(version: 20140414033625) do
     t.datetime "updated_at"
   end
 
-  add_index "ambassadors", ["authentication_token"], name: "index_ambassadors_on_authentication_token", unique: true, using: :btree
-  add_index "ambassadors", ["confirmation_token"], name: "index_ambassadors_on_confirmation_token", unique: true, using: :btree
-  add_index "ambassadors", ["email"], name: "index_ambassadors_on_email", unique: true, using: :btree
-
-  create_table "authentications", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "student_ambassadors", ["authentication_token"], name: "index_student_ambassadors_on_authentication_token", unique: true, using: :btree
+  add_index "student_ambassadors", ["confirmation_token"], name: "index_student_ambassadors_on_confirmation_token", unique: true, using: :btree
+  add_index "student_ambassadors", ["email"], name: "index_student_ambassadors_on_email", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,5 +1,10 @@
 Ambassador::Application.routes.draw do
+  get 'sign_up' => 'registrations#new', as: 'new_registration'
+  resource :registrations, except: [:new], path: 'register'
+
+  devise_for :student_ambassadors, path: ''
   devise_for :users
+
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
