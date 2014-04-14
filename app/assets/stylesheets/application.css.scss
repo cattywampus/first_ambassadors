@@ -13,3 +13,20 @@
  */
 
 @import "bootstrap";
+
+.navbar-buttons {
+  margin: 8px 0;
+}
+
+.navbar-header {
+  width: auto;
+}
+
+.navbar-header .logo {
+  display: inline;
+  float: left;
+  padding: 10px 10px 10px 0;
+  vertical-align: top;
+}
+
+
