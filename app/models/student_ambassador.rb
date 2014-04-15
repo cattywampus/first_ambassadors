@@ -2,6 +2,11 @@ class StudentAmbassador < ActiveRecord::Base
   # Include devise modules
   devise :trackable, :confirmable
 
+  belongs_to :event
+  has_many :available_shifts
+
+  accepts_nested_attributes_for :available_shifts, reject_if: :all_blank, allow_destroy: true
+
   validates :email, presence: true, uniqueness: true, format: { with: Devise.email_regexp, allow_blank: true }
   validate :requires_full_name
   validates :phone_number, presence: true

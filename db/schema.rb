@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414033625) do
+ActiveRecord::Schema.define(version: 20140415001321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 20140414033625) do
   create_table "authentications", force: true do |t|
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "available_shifts", force: true do |t|
+    t.integer  "student_ambassador_id"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "available_shifts", ["student_ambassador_id"], name: "index_available_shifts_on_student_ambassador_id", using: :btree
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.datetime "ambassador_schedule_starts_at"
+    t.datetime "ambassador_schedule_ends_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,11 +61,13 @@ ActiveRecord::Schema.define(version: 20140414033625) do
     t.string   "frc_team_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "event_id"
   end
 
   add_index "student_ambassadors", ["authentication_token"], name: "index_student_ambassadors_on_authentication_token", unique: true, using: :btree
   add_index "student_ambassadors", ["confirmation_token"], name: "index_student_ambassadors_on_confirmation_token", unique: true, using: :btree
   add_index "student_ambassadors", ["email"], name: "index_student_ambassadors_on_email", unique: true, using: :btree
+  add_index "student_ambassadors", ["event_id"], name: "index_student_ambassadors_on_event_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

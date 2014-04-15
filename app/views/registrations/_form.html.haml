@@ -30,6 +30,12 @@
     .col-sm-offset-3.col-sm-9
       %span.help-block= student_ambassador.errors[:frc_team_number].join(', ')
 
+  #available_shifts
+    = f.fields_for :available_shifts do |shift|
+      = render 'available_shift', :f => shift
+    .links
+      = link_to_add_association 'Add more volunteer availability', f, :available_shifts
+
   .form-group
     .col-sm-offset-3.col-sm-2
       = f.submit 'Sign Up', class: 'btn btn-primary btn-lg'

@@ -30,6 +30,13 @@ class RegistrationsController < ApplicationController
   private
 
   def student_ambassador_params
-    params.require(:student_ambassador).permit(:first_name, :last_name, :email, :phone_number, :frc_team_number)
+    params.require(:student_ambassador)
+      .permit(:first_name, 
+              :last_name, 
+              :email, 
+              :phone_number, 
+              :frc_team_number, 
+              available_shifts_attributes: [:starts_at, :ends_at, :_destroy]
+             )
   end
 end
