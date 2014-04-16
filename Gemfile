@@ -42,6 +42,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bootstrap-sass'
 gem 'cancan'
+gem 'capistrano', '~> 2.15.5'
 gem 'cocoon'
 gem 'devise'
 gem 'devise_invitable'
