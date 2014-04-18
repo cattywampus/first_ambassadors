@@ -1,2 +1,74 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+.col-md-9.col-xs-12
+  %h1#info_welcome 
+    Become a Student Ambassador
+  %p 
+    Student ambassadors are #{first} volunteers who help provide some of 
+    #{first}'s special guests with a front row seat experience to our events.
+    Ambassador's educate and engage VIP guests to inspire their continued 
+    motivation, passion, and commitment to #{first}. 
+
+  %h3#info_championship
+    #{first} World Championship
+
+  %p 
+    From April 23-26, the #{first} World Championship will be held in St. 
+    Louis, MO. Not only is this event where thousands of students will compete
+    and showcase this past year's hard work, but this is also where #{first}'s
+    sponsors, supporters, and other invited guests will come to learn and 
+    celebrate #{first}'s mission. 
+
+  %p
+    In order to make this a success, #{first} needs your help. If you're a 
+    student, #{first} particapant, or alumni and want to volunteer, please 
+    #{link_to 'sign up', new_registration_path} today to become a Student
+    Ambassador.
+
+  .center-block{style: 'width: 200px; text-align: center;'}
+    =link_to 'Sign Up', new_registration_path, class: 'btn btn-lg btn-success'
+
+  %h3#info-responsibilities
+    Responsibilies
+
+  %p
+    As an ambassador, your responsibilities include
+
+  %ul
+    %li Conduct tours of the event facilities, such as the Pit
+    %li Interact with teams
+    %li Connect with VIPs, sharing stories and information about #{first}
+    %li Check-in at the VIP information table 15-20 minutes prior to start of shift
+
+  %h3#info-experience
+    Required Experience &amp; Skills
+
+  %ul
+    %li General knowledge of #{first} and it's programs
+    %li Strong interpersonal and communication skills
+    %li Self-directed individual
+    %li Ability to move about the facility
+
+  %h3#info_training
+    Training
+
+  %p 
+    All ambassador volunteers will receive on-site training from the Ambassador 
+    Coordinator. There are currently two training sessions:
+
+  .row
+    .col-md-5.col-md-offset-1
+      %p.lead
+        Wed, April 23rd @ 3:00 pm
+        %br
+        Room 261, America's Center
+    .col-md-5
+      %p.lead
+        Thur, April 24th @ 10:00 am
+        %br
+        Ferrara Theatre, America's Center
+
+  %p
+    In addition to training, the Ambassador Coordinator will provide guidance and 
+    instruction to all ambassador volunteers throughout the competition. 
+
+.col-md-3
+
