@@ -1,6 +1,6 @@
 .nested-fields
   .field
-    .form-group
+    .form-group{ class: ('has-error' unless f.object.errors.blank?) }
       .col-offset-sm-3.col-sm-3.input-group.date.form-datetime 
         ==#{f.text_field :starts_at, placeholder: 'Start date/time', class: 'form-control'}
         %span.input-group-addon
@@ -13,3 +13,5 @@
           %span.glyphicon.glyphicon-th
       .col-sm-1
         = link_to_remove_association "Remove", f
+      .col-sm-9
+        %span.help-block= f.object.errors.full_messages.join(', ')

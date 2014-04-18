@@ -8,13 +8,13 @@ $ ->
   $('.form-datetime').datetimepicker
     autoclose: 1
     todayHighlight: 0
-    startDate: '2014-04-23T19:00:00Z'
-    endDate: '2014-04-26-T16:00:00Z'
+    #startDate: '2014-04-23T19:00:00Z'
+    #endDate: '2014-04-26-T16:00:00Z'
   
   $('#available_shift_fields').on 'cocoon:after-insert', (e, element) ->
     $(element).find(".form-datetime").datetimepicker
       autoclose: 1
       todayHighlight: 0
-      startDate: '2014-04-23T19:00:00Z'
-      endDate: '2014-04-26-T16:00:00Z'
+      #startDate: '2014-04-23T19:00:00Z'
+      #endDate: '2014-04-26-T16:00:00Z'
 

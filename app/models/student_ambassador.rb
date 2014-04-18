@@ -10,6 +10,8 @@ class StudentAmbassador < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true, format: { with: Devise.email_regexp, allow_blank: true }
   validate :requires_full_name
   validates :phone_number, presence: true
+  validates_associated :available_shifts
+  validate :must_provide_shift
 
   before_validation :clean_up_phone_number
 
@@ -17,6 +19,15 @@ class StudentAmbassador < ActiveRecord::Base
 
   def clean_up_phone_number
     phone_number.gsub! /[^0-9x+]/, '' if phone_number.present?
+  end
+
+  def must_provide_shift
+    if available_shifts.size == 0
+      errors.add(:shifts, "Must provide at least one volunteer shift")
+      false
+    else
+      true
+    end
   end
 
   def requires_full_name

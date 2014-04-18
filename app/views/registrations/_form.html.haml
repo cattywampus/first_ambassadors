@@ -32,10 +32,17 @@
 
   %fieldset
     %legend
-      FIRST World Championship
+      FIRST World Championship (Apr 23rd - 26th)
 
     %p
       Please indicate what time(s) you are able to volunteer as an ambassador. 
+      Student Ambassadors are only need on Thursday, Friday, and Saturday 
+      between the hours of 8:00 am and 2:00 pm. Please keep in mind that the 
+      minimum commitment of time should be 1½ hours.
+
+    - if student_ambassador.errors[:shifts].present?
+      .alert.alert-danger
+        = student_ambassador.errors[:shifts].join(', ')
 
     #available_shifts
       = f.label :available_shifts, 'My Availability', class: 'col-sm-3 control-label pull-left'
