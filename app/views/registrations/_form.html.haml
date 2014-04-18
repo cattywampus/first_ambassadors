@@ -30,12 +30,21 @@
     .col-sm-offset-3.col-sm-9
       %span.help-block= student_ambassador.errors[:frc_team_number].join(', ')
 
-  #available_shifts
-    = f.fields_for :available_shifts do |shift|
-      = render 'available_shift', :f => shift
-    .links
-      = link_to_add_association 'Add more volunteer availability', f, :available_shifts
+  %fieldset
+    %legend
+      FIRST World Championship
 
-  .form-group
-    .col-sm-offset-3.col-sm-2
-      = f.submit 'Sign Up', class: 'btn btn-primary btn-lg'
+    %p
+      Please indicate what time(s) you are able to volunteer as an ambassador. 
+
+    #available_shifts
+      = f.label :available_shifts, 'My Availability', class: 'col-sm-3 control-label pull-left'
+      #available_shift_fields.col-offset-sm-3.col-sm-9
+        = f.fields_for :available_shifts do |shift|
+          = render 'available_shift_fields', :f => shift
+      .links
+        = link_to_add_association 'Add more volunteer availability', f, :available_shifts
+
+    .form-group
+      .col-sm-offset-3.col-sm-2
+        = f.submit 'Sign Up', class: 'btn btn-primary btn-lg'

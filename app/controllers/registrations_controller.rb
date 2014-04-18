@@ -1,6 +1,7 @@
 class RegistrationsController < ApplicationController
   def new
     @student_ambassador = StudentAmbassador.new
+    @student_ambassador.available_shifts.build
   end
 
   def create
